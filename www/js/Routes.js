@@ -1,6 +1,5 @@
 frontendRouter(location.pathname);
   
-  // The router (do whatever you want here)
   function frontendRouter(path){
     let routes = {
       '/': () => { 
@@ -45,13 +44,16 @@ frontendRouter(location.pathname);
 
 
 window.addEventListener('click', function (event) {
+  if(event.path[2] == nav){
 
-  this.window.history.pushState({route: event.path[0].id}, '', event.path[0].id);
+    //add route path to window url
+    this.window.history.pushState({route: event.path[0].id}, '', event.path[0].id);
 
-  // Listen to back/forward
-  window.addEventListener("popstate", () => {
+    // Listen to back/forward
+    window.addEventListener("popstate", () => {
+      frontendRouter(location.pathname);
+    });
+  
     frontendRouter(location.pathname);
-  });
-
-  frontendRouter(location.pathname);
+  }
 }, false);
