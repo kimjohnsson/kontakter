@@ -1,1 +1,5 @@
-footer.innerHTML = '© Kim Johnsson'
+class Footer{
+    constructor(footer){
+        footer.innerHTML = '© Kim Johnsson'
+    }
+}

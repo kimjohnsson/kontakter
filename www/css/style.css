@@ -54,6 +54,24 @@ nav .logo{
 
 }
 
+.createContact{
+  display: flex;
+  flex:1;
+  align-content: center;
+}
+
+.createContact input{
+  margin: auto;
+  margin-bottom: 5px;
+  width: 300px;
+  box-shadow: 1px 1px 1px 0px gray;
+  border-radius: 5px;
+  padding: 5px;
+  border:1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
 footer{
   background-color: black;
   color: white;
