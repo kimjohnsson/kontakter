@@ -3,6 +3,13 @@
 body{
   margin:0;
   font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main{
+  flex: 1;
 }
 
 main > * {
@@ -34,4 +41,14 @@ li{
 
 nav li:hover{
   cursor: pointer;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  font-weight: 200;
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+  font-family: 'oswald', sans-serif;
 }
