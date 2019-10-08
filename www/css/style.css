@@ -20,7 +20,9 @@ main > * {
 
 nav{
   background-color: black;
-  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 50px 15px 50px;
   margin-bottom: 20px;
   color: rgb(0, 195, 255);
   font-size: 20px;
@@ -28,19 +30,28 @@ nav{
   font-family: 'oswald', sans-serif;
 }
 
-ul{
+nav ul{
   list-style: none;
   padding:0;
   margin:0;
 }
 
-li{
+nav li{
   margin: 10px;
   display: inline;
 }
 
 nav li:hover{
   cursor: pointer;
+  border-bottom: 1.5px solid rgb(0, 195, 255);
+}
+
+nav .logo{
+  margin:0;
+  font-family: 'oswald', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+
 }
 
 footer{
