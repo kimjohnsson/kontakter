@@ -1,0 +1,1 @@
+footer.innerHTML = '© Kim Johnsson'
