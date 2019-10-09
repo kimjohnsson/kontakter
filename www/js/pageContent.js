@@ -36,11 +36,11 @@ class PageContent {
         console.log(store)
 
         new Navbar(nav, this.event);
-        new ContactList(main);
+        this.contactList = new ContactList(main, store.contacts);
         this.createContact = new CreateContact(main);
         new PageNotFound(main);
         new Footer(footer);
-        new Router(title, nav);
+        this.router = new Router(title);
 
         window.addEventListener('click', e => {
             if(e.target.closest('#number' + this.createContact.numberOfNumbers)){
@@ -74,6 +74,18 @@ class PageContent {
                 store.contacts.push([contact])
                 store.save();
             }
+
+            if (e.path[2] == nav) {
+        
+                //add route path to window url
+                window.history.pushState({ route: e.path[0].id }, '', e.path[0].id);
+        
+                this.router.frontendRouter(location.pathname, title);
+            }
+            // Listen to back/forward
+            window.addEventListener("popstate", () => {
+                this.router.frontendRouter(location.pathname, title);
+            });
         });
     }
 }

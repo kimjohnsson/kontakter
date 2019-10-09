@@ -1,21 +1,7 @@
-class Router {
-    constructor(title, nav) {
+class Router{
+    constructor(title) {
 
         this.frontendRouter(location.pathname, title);
-
-        window.addEventListener('click',(event) => {
-            if (event.path[2] == nav) {
-        
-                //add route path to window url
-                window.history.pushState({ route: event.path[0].id }, '', event.path[0].id);
-        
-                this.frontendRouter(location.pathname, title);
-            }
-            // Listen to back/forward
-            window.addEventListener("popstate", () => {
-                this.frontendRouter(location.pathname, title);
-            });
-        }, false);
     }
 
     frontendRouter(path, title) {

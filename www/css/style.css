@@ -56,8 +56,9 @@ nav .logo{
 
 }
 
-.createContact{
+.createContact, .contactList{
   width: 500px;
+  min-height: 276px;
   align-content: center;
   background-color: #f2f2f2;
   padding: 20px 100px 20px 100px;
@@ -65,10 +66,40 @@ nav .logo{
   box-shadow: 1px 1px 10px 0px gray;
 }
 
-.createContact h1{
+.createContact h1, .contactList h1{
   font-weight: 200;
   font-size: 30px;
   margin-top: 10px;
+}
+
+.contactList h2{
+  text-align: center;
+  margin:0;
+  margin-top: 70px;
+  font-weight: 200;
+  font-size: 25px;
+}
+
+.contact{
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.contact p{
+  font-weight: 200;
+  font-size: 16px;
+  margin:0;
+  margin-bottom:5px;
+}
+
+.contactName{
+  font-size: 22px !important;
 }
 
 .createContact input{
