@@ -6,10 +6,13 @@ body{
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: gray;
 }
 
 main{
   flex: 1;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 main > * {
@@ -23,8 +26,7 @@ nav{
   display: flex;
   justify-content: space-between;
   padding: 15px 50px 15px 50px;
-  margin-bottom: 20px;
-  color: rgb(0, 195, 255);
+  color: white;
   font-size: 20px;
   font-weight: 200;
   font-family: 'oswald', sans-serif;
@@ -43,7 +45,7 @@ nav li{
 
 nav li:hover{
   cursor: pointer;
-  border-bottom: 1.5px solid rgb(0, 195, 255);
+  border-bottom: 1.5px solid white;
 }
 
 nav .logo{
@@ -55,21 +57,38 @@ nav .logo{
 }
 
 .createContact{
-  display: flex;
-  flex:1;
+  width: 500px;
   align-content: center;
+  background-color: #f2f2f2;
+  padding: 20px 100px 20px 100px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 0px gray;
+}
+
+.createContact h1{
+  font-weight: 200;
+  font-size: 30px;
+  margin-top: 10px;
 }
 
 .createContact input{
-  margin: auto;
-  margin-bottom: 5px;
-  width: 300px;
-  box-shadow: 1px 1px 1px 0px gray;
-  border-radius: 5px;
-  padding: 5px;
-  border:1px solid gray;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin:auto;
+  padding: 12px 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.createContact input[type=submit]{
+  align-items: center;
+  font-weight: 200;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
 }
 
 footer{

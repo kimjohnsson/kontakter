@@ -1,5 +1,6 @@
 class Router {
     constructor(title, nav) {
+
         this.frontendRouter(location.pathname, title);
 
         window.addEventListener('click',(event) => {

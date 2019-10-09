@@ -3,8 +3,7 @@ class Navbar{
         let logo = document.createElement('h1')
         logo.className = 'logo'
         logo.innerHTML = 'Kontakter AB'
-        nav.append(logo)
-        
+        nav.append(logo)        
         
         let ul = document.createElement('ul')
         nav.append(ul)
