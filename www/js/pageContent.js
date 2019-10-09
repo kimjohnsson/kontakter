@@ -14,6 +14,27 @@ class PageContent {
         head.append(title)
         body[0].append(nav, main, footer)
 
+        //load localStorage
+        let store;
+        try {
+        store = JSON.parse(localStorage.store);
+        }
+        catch(e){
+        store = {};
+        }
+        
+        store.save = function(){
+        localStorage.store = JSON.stringify(this);
+        };
+
+        //create localStorage
+        if(!store.contacts){
+            store.contacts = [];
+            store.save();
+        }
+
+        console.log(store)
+
         new Navbar(nav, this.event);
         new ContactList(main);
         this.createContact = new CreateContact(main);
@@ -31,7 +52,27 @@ class PageContent {
             }
 
             if(e.target.closest('#createContactButton')){
-                console.log('hej')
+                let contactNumbers = []
+                let contactEmails = []
+
+                let name = document.querySelector('input[name=name]').value;
+
+                let numbers = document.querySelectorAll('input[name=number]');
+                for(let number of numbers){
+                    contactNumbers.push(number.value)
+                }
+
+                let emails = document.querySelectorAll('input[name=email]');
+                for(let email of emails){
+                    contactEmails.push(email.value)
+                }
+
+                contactNumbers.pop()
+                contactEmails.pop()
+
+                let contact = {name: name, number: contactNumbers, email: contactEmails}
+                store.contacts.push([contact])
+                store.save();
             }
         });
     }
