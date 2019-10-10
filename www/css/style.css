@@ -88,7 +88,7 @@ nav .logo{
   margin-top: 8px;
   margin-bottom: 8px;
   background-color: white;
-  cursor: pointer;
+  position: relative;
 }
 
 .contact p{
@@ -96,6 +96,24 @@ nav .logo{
   font-size: 16px;
   margin:0;
   margin-bottom:5px;
+}
+
+.contact:hover .contactOptions{
+  display:block;
+}
+
+.contactOptions{
+  position: absolute;
+  right: 2px;
+  top:2px;
+  display:none;
+}
+
+.contactOptions p{
+  display: inline-block;
+  font-size: 20px;
+  margin-right:5px;
+  cursor: pointer;
 }
 
 .contactName{

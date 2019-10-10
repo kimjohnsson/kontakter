@@ -1,6 +1,8 @@
 class ContactList{
     constructor(main, contacts){
 
+        this.main = main
+
         this.contacts = contacts
 
         this.contactList = document.createElement('section')
@@ -16,9 +18,12 @@ class ContactList{
 
     renderContactList(){
 
+        this.removeOldContact()
+
         if(this.contacts.length <= 0){
             let noContacts = document.createElement('h2')
             noContacts.innerHTML = 'No Contacts Added'
+            noContacts.className = "noContacts"
             this.contactList.append(noContacts)
         }else{
             
@@ -27,6 +32,21 @@ class ContactList{
                 let contactInList = document.createElement('div')
                 contactInList.className = 'contact'
                 this.contactList.append(contactInList)
+
+                let options = document.createElement('div')
+                options.className = 'contactOptions'
+                contactInList.append(options)
+
+                let remove = document.createElement('p')
+                remove.className = 'deleteContact'
+                remove.innerHTML = '🗑'
+                remove.value = contact
+                options.append(remove)
+
+                let edit = document.createElement('p')
+                edit.className = 'editContact'
+                edit.innerHTML = '🖊'
+                options.append(edit)
 
                 let name = document.createElement('p')
                 name.className = 'contactName'
@@ -48,5 +68,17 @@ class ContactList{
             }
         }
 
+    }
+
+    removeOldContact(){
+        let contacts = document.querySelectorAll('.contact');
+        for(let contact of contacts){
+            contact.remove()
+        }
+        let noContacts = document.querySelector('.noContacts')
+        if(noContacts){
+           noContacts.remove() 
+        }
+        
     }
 }

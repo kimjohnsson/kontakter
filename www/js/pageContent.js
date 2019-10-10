@@ -42,13 +42,28 @@ class PageContent {
         new Footer(footer);
         this.router = new Router(title);
 
-        window.addEventListener('click', e => {
+        window.addEventListener('input', e => {
             if(e.target.closest('#number' + this.createContact.numberOfNumbers)){
                 this.createContact.addNumber();
             }
 
             if(e.target.closest('#email' + this.createContact.numberOfEmails)){
                 this.createContact.addEmail();
+            }
+        })
+
+        window.addEventListener('click', e => {
+
+            if(e.target.closest('.deleteContact')){
+                console.log(e.target.value)
+
+                store.contacts.forEach((contact, index) => {
+                    if(contact === e.target.value){
+                        store.contacts.splice(index, 1)
+                        store.save()
+                        this.contactList.renderContactList()
+                    }
+                })
             }
 
             if(e.target.closest('#createContactButton')){
@@ -76,6 +91,9 @@ class PageContent {
             }
 
             if (e.path[2] == nav) {
+
+                this.contactList.renderContactList()
+                this.createContact.renderInput()
         
                 //add route path to window url
                 window.history.pushState({ route: e.path[0].id }, '', e.path[0].id);
