@@ -56,7 +56,7 @@ nav .logo{
 
 }
 
-.createContact, .contactList{
+.createContact, .contactList, .editContactPage{
   width: 500px;
   min-height: 276px;
   align-content: center;
@@ -66,7 +66,7 @@ nav .logo{
   box-shadow: 1px 1px 10px 0px gray;
 }
 
-.createContact h1, .contactList h1{
+.createContact h1, .contactList h1, .editContactPage h1{
   font-weight: 200;
   font-size: 30px;
   margin-top: 10px;
@@ -120,7 +120,7 @@ nav .logo{
   font-size: 22px !important;
 }
 
-.createContact input{
+.createContact input, .editContactPage input{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -133,7 +133,7 @@ nav .logo{
   box-sizing: border-box;
 }
 
-.createContact input[type=submit]{
+.createContact input[type=submit], .editContactPage input[type=submit]{
   align-items: center;
   font-weight: 200;
   font-family: 'Roboto Condensed', sans-serif;

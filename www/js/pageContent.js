@@ -1,5 +1,6 @@
 class PageContent {
     constructor(){
+
         let body = document.getElementsByTagName('body')
         let head = document.getElementsByTagName('head')
         head = head[0]
@@ -33,22 +34,32 @@ class PageContent {
             store.save();
         }
 
-        console.log(store)
+        console.log(store.contacts)
 
         new Navbar(nav, this.event);
         this.contactList = new ContactList(main, store.contacts);
         this.createContact = new CreateContact(main);
+        this.editContact = new EditContact(main);
         new PageNotFound(main);
         new Footer(footer);
         this.router = new Router(title);
 
         window.addEventListener('input', e => {
+
             if(e.target.closest('#number' + this.createContact.numberOfNumbers)){
                 this.createContact.addNumber();
             }
 
+            if(e.target.closest('#number' + this.editContact.numberOfNumbers)){
+                this.editContact.addNumber();
+            }
+
             if(e.target.closest('#email' + this.createContact.numberOfEmails)){
                 this.createContact.addEmail();
+            }
+
+            if(e.target.closest('#email' + this.editContact.numberOfEmails)){
+                this.editContact.addEmail();
             }
         })
 
@@ -66,6 +77,49 @@ class PageContent {
                 })
             }
 
+            if(e.target.closest('.editContact')){
+
+                this.currentEdit = e.target.value
+
+                this.editContact.renderContactInfo(e.target.value)
+
+                let contactList = document.querySelector('.contactList')
+                contactList.style.display = 'none'
+
+                let edit = document.querySelector('.editContactPage')
+                edit.style.display = 'block'
+            }
+
+            if(e.target.closest('#saveContactButton')){
+                let contactNumbers = []
+                let contactEmails = []
+
+                let name = document.querySelector('input[name=editName]').value;
+
+                let numbers = document.querySelectorAll('input[name=editNumber]');
+                for(let number of numbers){
+                    if(number.value){
+                        contactNumbers.push(number.value)
+                    }
+                }
+
+                let emails = document.querySelectorAll('input[name=editEmail]');
+                for(let email of emails){
+                    if(email.value){
+                        contactEmails.push(email.value)
+                    }
+                }
+
+                let contact = {name: name, number: contactNumbers, email: contactEmails}
+
+                if(contact != this.currentEdit[this.currentEdit.length -1]){
+                    console.log(contact)
+                    console.log(this.currentEdit[this.currentEdit.length -1])
+                    this.currentEdit.push(contact)
+                    store.save();
+                }
+            }
+
             if(e.target.closest('#createContactButton')){
                 let contactNumbers = []
                 let contactEmails = []
@@ -74,16 +128,17 @@ class PageContent {
 
                 let numbers = document.querySelectorAll('input[name=number]');
                 for(let number of numbers){
-                    contactNumbers.push(number.value)
+                    if(number.value){
+                        contactNumbers.push(number.value)
+                    }
                 }
 
                 let emails = document.querySelectorAll('input[name=email]');
                 for(let email of emails){
-                    contactEmails.push(email.value)
+                    if(email.value){
+                        contactEmails.push(email.value)
+                    }
                 }
-
-                contactNumbers.pop()
-                contactEmails.pop()
 
                 let contact = {name: name, number: contactNumbers, email: contactEmails}
                 store.contacts.push([contact])

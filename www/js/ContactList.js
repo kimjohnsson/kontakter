@@ -46,6 +46,7 @@ class ContactList{
                 let edit = document.createElement('p')
                 edit.className = 'editContact'
                 edit.innerHTML = '🖊'
+                edit.value = contact
                 options.append(edit)
 
                 let name = document.createElement('p')

@@ -1,6 +1,8 @@
 class CreateContact{
     constructor(main){
         this.main = main
+        this.emailInputName = 'email'
+        this.numberInputName = 'number'
 
         this.renderInput()
     }
@@ -30,12 +32,12 @@ class CreateContact{
         this.numbers = document.createElement('div')
         this.numbers.className = 'numbers'
         this.createContact.append(this.numbers)
-        this.numbers.append(new NumberInput(this.numberOfNumbers))
+        this.numbers.append(new NumberInput(this.numberOfNumbers, this.numberInputName))
 
         this.emails = document.createElement('div')
         this.emails.className = 'emails'
         this.createContact.append(this.emails)
-        this.emails.append(new EmailInput(this.numberOfEmails))
+        this.emails.append(new EmailInput(this.numberOfEmails, this.emailInputName))
 
         let createButton = document.createElement('input')
         createButton.type = 'submit'
@@ -47,12 +49,12 @@ class CreateContact{
 
     addNumber(){
         this.numberOfNumbers += 1;
-        this.numbers.append(new NumberInput(this.numberOfNumbers))
+        this.numbers.append(new NumberInput(this.numberOfNumbers, this.numberInputName))
     }
 
     addEmail(){
         this.numberOfEmails += 1;
-        this.emails.append(new EmailInput(this.numberOfEmails))
+        this.emails.append(new EmailInput(this.numberOfEmails, this.emailInputName))
     }
 
     removeInputs(){
