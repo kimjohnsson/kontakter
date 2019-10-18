@@ -41,6 +41,7 @@ class PageContent {
         this.createContact = new CreateContact(main);
         this.editContact = new EditContact(main);
         new PageNotFound(main);
+        this.popup = new Popup(main)
         new Footer(footer);
         this.router = new Router(title);
 
@@ -103,6 +104,8 @@ class PageContent {
 
                 let edit = document.querySelector('.editContactPage')
                 edit.style.display = 'block'
+
+                this.popup.popup('Restored!')
             }
 
             if(e.target.closest('#saveContactButton')){
@@ -133,6 +136,8 @@ class PageContent {
                         store.save()
                     }
                 })
+
+                this.popup.popup('Saved Changes!')
             }
 
             if(e.target.closest('#createContactButton')){
@@ -158,6 +163,8 @@ class PageContent {
                 let contact = {name: name, number: contactNumbers, email: contactEmails}
                 store.contacts.push([contact])
                 store.save();
+
+                this.popup.popup('Contact Created!')
             }
 
             if (e.path[2] == nav) {

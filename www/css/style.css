@@ -11,8 +11,8 @@ body{
 
 main{
   flex: 1;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 main > * {
@@ -54,6 +54,28 @@ nav .logo{
   font-weight: 400;
   font-size: 20px;
 
+}
+
+.popup{
+  position: absolute;
+  top:70px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 660px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 0px gray;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.popup p{
+  font-weight: 200;
+  font-size: 20px;
+  margin:0;
 }
 
 .createContact, .contactList, .editContactPage{
@@ -159,12 +181,23 @@ footer{
     width: 400px;
     padding: 20px 50px 20px 50px;
   }
+
+  .popup{
+    width: 460px;
+    padding: 10px 20px 10px 20px;
+  }
 }
 
 @media screen and (max-width: 515px) {
   .createContact, .contactList, .editContactPage{
     width: 87%;
     padding: 20px 20px 20px 20px;
+  }
+
+  .popup{
+    width: 87%;
+    top: 160px;
+    padding: 10px 20px 10px 20px;
   }
 
   nav li, nav{
