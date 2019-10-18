@@ -140,6 +140,10 @@ nav .logo{
   font-size: 18px;
 }
 
+#historyH1{
+  margin-top: 30px;
+}
+
 footer{
   background-color: black;
   color: white;
@@ -148,4 +152,23 @@ footer{
   padding: 20px;
   font-size: 15px;
   font-family: 'oswald', sans-serif;
+}
+
+@media screen and (max-width: 717px) {
+  .createContact, .contactList, .editContactPage{
+    width: 400px;
+    padding: 20px 50px 20px 50px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .createContact, .contactList, .editContactPage{
+    width: 87%;
+    padding: 20px 20px 20px 20px;
+  }
+
+  nav li, nav{
+    display:block;
+    text-align: center;
+  }
 }

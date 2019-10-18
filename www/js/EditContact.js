@@ -71,6 +71,59 @@ class EditContact{
         saveButton.id = 'saveContactButton'
         saveButton.value = 'Save Changes'
         this.editContact.append(saveButton);
+
+        this.contactHistory(contactInfo);
+    }
+
+    contactHistory(contact){
+        if(contact.length > 1){
+
+            let history = [...contact]
+            
+            history.pop();
+            history.reverse();
+
+            let headerText = document.createElement('h1')
+            headerText.innerHTML = 'History'
+            headerText.id = 'historyH1'
+            this.editContact.append(headerText)
+
+            for(let change of history){
+    
+                let contactInList = document.createElement('div')
+                contactInList.className = 'contact'
+                this.editContact.append(contactInList)
+
+                let options = document.createElement('div')
+                options.className = 'contactOptions'
+                contactInList.append(options)
+
+                let restore = document.createElement('p')
+                restore.className = 'restore'
+                restore.innerHTML = '♻️'
+                restore.value = change
+                options.append(restore)
+    
+                let name = document.createElement('p')
+                name.className = 'contactName'
+                name.innerHTML = change.name
+                contactInList.append(name)
+
+                for(let number of change.number){
+                    let num = document.createElement('p')
+                    num.innerHTML = number
+                    contactInList.append(num)
+                }
+
+                for(let email of change.email){
+                    let mail = document.createElement('p')
+                    mail.innerHTML = email
+                    contactInList.append(mail)
+                }
+
+            }
+        }
+
     }
 
     addNumber(){

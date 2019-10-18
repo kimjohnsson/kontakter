@@ -90,6 +90,21 @@ class PageContent {
                 edit.style.display = 'block'
             }
 
+            if(e.target.closest('.restore')){
+
+                store.contacts.forEach((contact, index) => {
+                    if(contact === this.currentEdit){
+                        store.contacts[index].push(e.target.value)
+                        store.save()
+                    }
+                })
+
+                this.editContact.renderContactInfo(this.currentEdit)
+
+                let edit = document.querySelector('.editContactPage')
+                edit.style.display = 'block'
+            }
+
             if(e.target.closest('#saveContactButton')){
                 let contactNumbers = []
                 let contactEmails = []
@@ -110,14 +125,14 @@ class PageContent {
                     }
                 }
 
-                let contact = {name: name, number: contactNumbers, email: contactEmails}
+                let newContact = {name: name, number: contactNumbers, email: contactEmails}
 
-                if(contact != this.currentEdit[this.currentEdit.length -1]){
-                    console.log(contact)
-                    console.log(this.currentEdit[this.currentEdit.length -1])
-                    this.currentEdit.push(contact)
-                    store.save();
-                }
+                store.contacts.forEach((contact, index) => {
+                    if(contact === this.currentEdit){
+                        store.contacts[index].push(newContact)
+                        store.save()
+                    }
+                })
             }
 
             if(e.target.closest('#createContactButton')){
