@@ -137,6 +137,8 @@ class PageContent {
                     }
                 })
 
+                this.editContact.renderContactInfo(this.currentEdit)
+
                 this.popup.popup('Saved Changes!')
             }
 

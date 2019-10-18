@@ -13,6 +13,7 @@ class EditContact{
 
         this.editContact = document.createElement('section')
         this.editContact.className = 'editContactPage'
+        this.editContact.style.display = 'block'
         this.main.append(this.editContact)
 
         let headerText = document.createElement('h1')
