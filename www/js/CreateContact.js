@@ -1,46 +1,66 @@
 class CreateContact{
     constructor(main){
+        this.main = main
+        this.emailInputName = 'email'
+        this.numberInputName = 'number'
+
+        this.renderInput()
+    }
+
+    renderInput(){
+
+        this.removeInputs()
+
         this.numberOfNumbers = 1
         this.numberOfEmails = 1
 
-        let createContact = document.createElement('section')
-        createContact.className = 'createContact'
-        main.append(createContact)
+        this.createContact = document.createElement('section')
+        this.createContact.className = 'createContact'
+        this.main.append(this.createContact)
 
         let headerText = document.createElement('h1')
         headerText.innerHTML = 'Create Contact'
-        createContact.append(headerText)
-        
+        this.createContact.append(headerText)
+
         let nameInput = document.createElement('input')
         nameInput.type = 'text'
         nameInput.name = 'name'
+        nameInput.className = 'name'
         nameInput.placeholder = 'Name'
-        createContact.append(nameInput)
+        this.createContact.append(nameInput)
 
         this.numbers = document.createElement('div')
         this.numbers.className = 'numbers'
-        createContact.append(this.numbers)
-        this.numbers.append(new NumberInput(this.numberOfNumbers))
+        this.createContact.append(this.numbers)
+        this.numbers.append(new NumberInput(this.numberOfNumbers, this.numberInputName))
 
         this.emails = document.createElement('div')
         this.emails.className = 'emails'
-        createContact.append(this.emails)
-        this.emails.append(new EmailInput(this.numberOfEmails))
+        this.createContact.append(this.emails)
+        this.emails.append(new EmailInput(this.numberOfEmails, this.emailInputName))
 
         let createButton = document.createElement('input')
         createButton.type = 'submit'
         createButton.id = 'createContactButton'
         createButton.value = 'Create Contact'
-        createContact.append(createButton);
+        this.createContact.append(createButton);
+
     }
 
     addNumber(){
         this.numberOfNumbers += 1;
-        this.numbers.append(new NumberInput(this.numberOfNumbers))
+        this.numbers.append(new NumberInput(this.numberOfNumbers, this.numberInputName))
     }
 
     addEmail(){
         this.numberOfEmails += 1;
-        this.emails.append(new EmailInput(this.numberOfEmails))
+        this.emails.append(new EmailInput(this.numberOfEmails, this.emailInputName))
+    }
+
+    removeInputs(){
+        let createContactForm = document.querySelectorAll('.createContact');
+        for(let form of createContactForm){
+            form.remove()
+        }  
     }
 }

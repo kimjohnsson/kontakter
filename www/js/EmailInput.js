@@ -1,8 +1,8 @@
 class EmailInput{
-    constructor(nr){
+    constructor(nr, name){
         let email = document.createElement('input')
         email.type = 'text'
-        email.name = 'email'
+        email.name = name
         email.id = 'email' + nr
         email.placeholder = 'Add Email'
         return email

@@ -11,8 +11,8 @@ body{
 
 main{
   flex: 1;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 main > * {
@@ -56,8 +56,31 @@ nav .logo{
 
 }
 
-.createContact{
+.popup{
+  position: absolute;
+  top:70px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 660px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 0px gray;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.popup p{
+  font-weight: 200;
+  font-size: 20px;
+  margin:0;
+}
+
+.createContact, .contactList, .editContactPage{
   width: 500px;
+  min-height: 276px;
   align-content: center;
   background-color: #f2f2f2;
   padding: 20px 100px 20px 100px;
@@ -65,13 +88,61 @@ nav .logo{
   box-shadow: 1px 1px 10px 0px gray;
 }
 
-.createContact h1{
+.createContact h1, .contactList h1, .editContactPage h1{
   font-weight: 200;
   font-size: 30px;
   margin-top: 10px;
 }
 
-.createContact input{
+.contactList h2{
+  text-align: center;
+  margin:0;
+  margin-top: 70px;
+  font-weight: 200;
+  font-size: 25px;
+}
+
+.contact{
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: white;
+  position: relative;
+}
+
+.contact p{
+  font-weight: 200;
+  font-size: 16px;
+  margin:0;
+  margin-bottom:5px;
+}
+
+.contact:hover .contactOptions{
+  display:block;
+}
+
+.contactOptions{
+  position: absolute;
+  right: 2px;
+  top:2px;
+  display:none;
+}
+
+.contactOptions p{
+  display: inline-block;
+  font-size: 20px;
+  margin-right:5px;
+  cursor: pointer;
+}
+
+.contactName{
+  font-size: 22px !important;
+}
+
+.createContact input, .editContactPage input{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -84,11 +155,15 @@ nav .logo{
   box-sizing: border-box;
 }
 
-.createContact input[type=submit]{
+.createContact input[type=submit], .editContactPage input[type=submit]{
   align-items: center;
   font-weight: 200;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
+}
+
+#historyH1{
+  margin-top: 30px;
 }
 
 footer{
@@ -99,4 +174,34 @@ footer{
   padding: 20px;
   font-size: 15px;
   font-family: 'oswald', sans-serif;
+}
+
+@media screen and (max-width: 717px) {
+  .createContact, .contactList, .editContactPage{
+    width: 400px;
+    padding: 20px 50px 20px 50px;
+  }
+
+  .popup{
+    width: 460px;
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .createContact, .contactList, .editContactPage{
+    width: 87%;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .popup{
+    width: 87%;
+    top: 160px;
+    padding: 10px 20px 10px 20px;
+  }
+
+  nav li, nav{
+    display:block;
+    text-align: center;
+  }
 }
