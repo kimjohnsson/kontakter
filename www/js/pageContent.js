@@ -162,11 +162,15 @@ class PageContent {
                     }
                 }
 
-                let contact = {name: name, number: contactNumbers, email: contactEmails}
-                store.contacts.push([contact])
-                store.save();
+                if(name){
 
-                this.popup.popup('Contact Created!')
+                    let contact = {name: name, number: contactNumbers, email: contactEmails}
+                    store.contacts.push([contact])
+                    store.save();
+    
+                    this.popup.popup('Contact Created!')
+
+                }
             }
 
             if (e.path[2] == nav) {
